@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOVA PS5 | PS5 7.00 - 13.60 Jailbreak</title>
+  <link rel="icon" type="image/jpeg" href="./logo.jpeg">
+  
+  <!-- Modern Designer Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       YOVA PS5 - LUXURY ORANGE & WHITE GAMING THEME
+       ========================================================================== */
+    :root {
+      --bg-dark: #07070a;
+      --bg-panel: rgba(13, 13, 20, 0.78);
+      --bg-panel-hover: rgba(18, 18, 28, 0.85);
+      
+      /* Vibrant Orange / White Palette */
+      --neon-orange: #ff6a00;
+      --neon-orange-glow: rgba(255, 106, 0, 0.45);
+      --neon-orange-bright: #ff882e;
+      --neon-orange-deep: #e65100;
+      --pure-white: #ffffff;
+      --pearl-white: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --border-orange: rgba(255, 106, 0, 0.35);
+      
+      /* Status */
+      --neon-green: #00ff88;
+      --neon-red: #ff3366;
+      
+      /* Typography */
+      --font-display: 'Syne', 'Orbitron', -apple-system, sans-serif;
+      --font-brand: 'Orbitron', -apple-system, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--pearl-white);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      
+      /* Ambient Cyber Gaming Background */
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(255, 106, 0, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
+        linear-gradient(rgba(6, 6, 10, 0.80), rgba(6, 6, 10, 0.90)), 
+        url('./background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-blend-mode: normal;
+    }
+
+    /* --- Animated Ambient Grid --- */
+    .grid-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 106, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+      z-index: -1;
+      pointer-events: none;
+      animation: gridMove 25s linear infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(32px); }
+    }
+
+    /* --- Layout Container --- */
+    .app-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 2rem 2rem 2.5rem;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.85rem;
+    }
+
+    /* ==========================================================================
+       HEADER
+       ========================================================================== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.25rem;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-glass);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 
+        0 14px 40px rgba(0, 0, 0, 0.65), 
+        0 0 25px rgba(255, 106, 0, 0.1),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 5%, var(--neon-orange) 30%, var(--pure-white) 50%, var(--neon-orange) 70%, transparent 95%);
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .logo-link {
+      display: inline-flex;
+      text-decoration: none;
+      cursor: pointer;
+      outline: none;
+      border-radius: 50%;
+    }
+
+    .logo-img {
+      cursor: pointer;
+      height: 68px;
+      width: 68px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--neon-orange);
+      box-shadow: 0 0 20px var(--neon-orange-glow);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+    }
+    
+    .logo-img:hover {
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 0 30px rgba(255, 106, 0, 0.75);
+    }
+
+    .title-area h1 {
+      font-family: var(--font-brand);
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 2.5px;
+      line-height: 1.1;
+      background: linear-gradient(90deg, #ff7a00 0%, #ffffff 50%, #ff9500 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px rgba(255, 106, 0, 0.35);
+    }
+
+    .title-area p {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-top: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .title-area p span.dot {
+      color: var(--neon-orange);
+      font-size: 1rem;
+    }
+
+    .version-badge {
+      background: rgba(255, 106, 0, 0.12);
+      border: 1px solid var(--neon-orange);
+      color: var(--pure-white);
+      padding: 0.6rem 1.25rem;
+      border-radius: 50px;
+      font-family: var(--font-code);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 0 20px rgba(255, 106, 0, 0.25);
+      animation: pulseGlow 2.5s infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(255, 106, 0, 0.2); }
+      50% { box-shadow: 0 0 28px rgba(255, 106, 0, 0.55); }
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT GRID
+       ========================================================================== */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.85rem;
+      flex: 1;
+    }
+
+    @media (max-width: 920px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
+        gap: 1.25rem;
+        text-align: center;
+      }
+      .logo-area {
+        flex-direction: column;
+      }
+    }
+
+    /* --- Panel Styling --- */
+    .panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-glass);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65);
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .panel:hover {
+      border-color: rgba(255, 106, 0, 0.25);
+    }
+
+    .panel-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--pure-white);
+      border-bottom: 1px solid rgba(255, 106, 0, 0.22);
+      padding-bottom: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.35rem 0.75rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-glass);
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: var(--text-muted);
+      transition: all 0.3s ease;
+    }
+
+    .status-dot.active {
+      background-color: var(--neon-green);
+      box-shadow: 0 0 12px var(--neon-green);
+      animation: pulseGreen 1.5s infinite;
+    }
+
+    .status-dot.error {
+      background-color: var(--neon-red);
+      box-shadow: 0 0 12px var(--neon-red);
+    }
+
+    @keyframes pulseGreen {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+
+    /* --- Form Elements --- */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .select-wrap {
+      position: relative;
+    }
+
+    select {
+      width: 100%;
+      background: rgba(7, 7, 12, 0.85);
+      border: 1px solid var(--border-orange);
+      color: var(--pure-white);
+      padding: 0.85rem 1.25rem;
+      border-radius: 12px;
+      font-family: var(--font-code);
+      font-size: 0.95rem;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: all 0.25s ease;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    select:focus {
+      border-color: var(--pure-white);
+      box-shadow: 0 0 15px rgba(255, 106, 0, 0.35);
+    }
+
+    select option {
+      background: #0d0d14;
+      color: var(--pure-white);
+      padding: 0.5rem;
+    }
+
+    .select-arrow {
+      position: absolute;
+      right: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--neon-orange);
+      font-size: 0.75rem;
+    }
+
+    /* --- Big Action Button --- */
+    .action-btn {
+      position: relative;
+      background: linear-gradient(135deg, #ff7a00 0%, #ff4d00 50%, #e64000 100%);
+      border: 2px solid var(--pure-white);
+      color: var(--pure-white);
+      padding: 1.35rem;
+      border-radius: 14px;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      box-shadow: 
+        0 8px 25px rgba(255, 85, 0, 0.45),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .action-btn:hover:not(:disabled) {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 
+        0 14px 35px rgba(255, 85, 0, 0.65), 
+        0 0 30px rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, #ff8c1a 0%, #ff5e00 50%, #f04800 100%);
+    }
+
+    .action-btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    .action-btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      border-color: rgba(255, 255, 255, 0.3);
+      background: #2a160c;
+      box-shadow: none;
+    }
+
+    .action-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%; left: -60%;
+      width: 220%; height: 200%;
+      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transform: rotate(30deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+
+    .action-btn:hover::after {
+      opacity: 1;
+      left: 120%;
+    }
+
+    .secondary-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glass);
+      color: var(--pearl-white);
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .secondary-btn:hover {
+      border-color: var(--neon-orange);
+      background: rgba(255, 106, 0, 0.15);
+      color: var(--pure-white);
+    }
+
+    /* ==========================================================================
+       CONSOLE AREA
+       ========================================================================== */
+    .console-wrapper {
+      display: flex;
+      flex-direction: column;
+      background: rgba(6, 6, 10, 0.94);
+      border: 1px solid var(--border-orange);
+      border-radius: 18px;
+      overflow: hidden;
+      height: 100%;
+      min-height: 440px;
+      box-shadow: 
+        inset 0 0 35px rgba(0, 0, 0, 0.9),
+        0 12px 35px rgba(0, 0, 0, 0.65);
+    }
+
+    .console-header {
+      background: rgba(18, 18, 28, 0.9);
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 106, 0, 0.25);
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      color: var(--neon-orange-bright);
+    }
+
+    .console-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .c-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .c-dot.dot-orange { background: var(--neon-orange); }
+    .c-dot.dot-white { background: var(--pure-white); opacity: 0.7; }
+    .c-dot.dot-dark { background: #334155; }
+
+    #logCount {
+      font-family: var(--font-code);
+      font-size: 0.78rem;
+      color: var(--pure-white);
+      background: rgba(255, 106, 0, 0.15);
+      border: 1px solid rgba(255, 106, 0, 0.35);
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+    }
+
+    #console-output {
+      padding: 1.25rem;
+      overflow-y: auto;
+      flex: 1;
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--neon-orange) transparent;
+      background: #050508;
+    }
+
+    #console-output::-webkit-scrollbar {
+      width: 7px;
+    }
+    #console-output::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #console-output::-webkit-scrollbar-thumb {
+      background-color: var(--neon-orange);
+      border-radius: 4px;
+    }
+
+    .log-line {
+      word-break: break-all;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .log-line.info { color: var(--pure-white); }
+    .log-line.success { color: var(--neon-green); text-shadow: 0 0 8px rgba(0, 255, 136, 0.3); }
+    .log-line.warn { color: #ffb703; }
+    .log-line.error { color: var(--neon-red); text-shadow: 0 0 8px rgba(255, 51, 102, 0.3); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer {
+      margin-top: auto;
+      padding: 1.4rem 2.25rem;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-glass);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .footer-brand {
+      font-family: var(--font-brand);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--pure-white);
+    }
+
+    .footer-brand span {
+      color: var(--neon-orange);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--pure-white);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-family: var(--font-body);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glass);
+      padding: 0.55rem 1.15rem;
+      border-radius: 50px;
+    }
+
+    .social-link:hover {
+      background: rgba(255, 106, 0, 0.2);
+      border-color: var(--neon-orange);
+      color: var(--pure-white);
+      box-shadow: 0 0 20px rgba(255, 106, 0, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .social-link svg {
+      width: 19px;
+      height: 19px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg" id="gridBg"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header>
+      <div class="logo-area">
+        <a href="https://www.tiktok.com/@yova2flash" target="_blank" rel="noopener noreferrer" class="logo-link" title="Visit YOVA on TikTok">
+          <img src="./logo.png" alt="YOVA PS5 Logo" class="logo-img" id="mainLogo" onerror="if(!this.src.endsWith('logo.jpeg')){this.src='./logo.jpeg';}else{this.style.display='none';}">
+        </a>
+        <div class="title-area">
+          <h1>YOVA PS5</h1>
+          <p>AIO FIX <span class="dot">&bull;</span> PLDMGR SUPPORTED</p>
+        </div>
+      </div>
+      <div class="version-badge">PS5 7.00 - 13.60</div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-grid">
+      <!-- Control Panel -->
+      <div class="panel">
+        <div class="panel-title">
+          <span>Control Panel</span>
+          <div class="status-indicator">
+            <div class="status-dot" id="statusDot"></div>
+            <span id="statusText">IDLE</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="firmwareSelect">Select PS5 Firmware</label>
+          <div class="select-wrap">
+            <select id="firmwareSelect">
+              <option value="auto" selected>Auto Detect (Recommended)</option>
+              <option value="7.00">7.00</option>
+              <option value="7.01">7.01</option>
+              <option value="7.20">7.20</option>
+              <option value="7.40">7.40</option>
+              <option value="7.60">7.60</option>
+              <option value="7.61">7.61</option>
+              <option value="8.00">8.00</option>
+              <option value="8.20">8.20</option>
+              <option value="8.40">8.40</option>
+              <option value="8.60">8.60</option>
+              <option value="9.00">9.00</option>
+              <option value="9.20">9.20</option>
+              <option value="9.40">9.40</option>
+              <option value="9.60">9.60</option>
+              <option value="10.00">10.00</option>
+              <option value="10.01">10.01</option>
+              <option value="10.20">10.20</option>
+              <option value="10.40">10.40</option>
+              <option value="10.60">10.60</option>
+              <option value="11.00">11.00</option>
+              <option value="11.20">11.20</option>
+              <option value="11.60">11.60</option>
+              <option value="12.00">12.00</option>
+              <option value="12.02">12.02</option>
+              <option value="12.20">12.20</option>
+              <option value="12.40">12.40</option>
+              <option value="12.60">12.60</option>
+              <option value="12.70">12.70</option>
+              <option value="13.00">13.00</option>
+              <option value="13.20">13.20</option>
+              <option value="13.40">13.40</option>
+              <option value="13.42">13.42</option>
+              <option value="13.60">13.60</option>
+            </select>
+            <span class="select-arrow">&#x25BC;</span>
+          </div>
+        </div>
+
+        <button class="action-btn" id="exploitBtn">Run Exploit</button>
+
+        <div style="display: flex; gap: 1rem; margin-top: auto;">
+          <button class="secondary-btn" id="clearBtn" style="flex: 1;">Clear Console</button>
+          <button class="secondary-btn" id="copyBtn" style="flex: 1;">Copy Logs</button>
+        </div>
+      </div>
+
+      <!-- Console Output -->
+      <div class="console-wrapper">
+        <div class="console-header">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div class="console-dots">
+              <div class="c-dot dot-orange"></div>
+              <div class="c-dot dot-white"></div>
+              <div class="c-dot dot-dark"></div>
+            </div>
+            <span>System Output</span>
+          </div>
+          <span id="logCount">0 lines</span>
+        </div>
+        <div id="console-output">
+          <div class="log-line info">> YOVA PS5 Interface Loaded.</div>
+          <div class="log-line info">> Supported Firmware: 7.00 - 13.60</div>
+          <div class="log-line info">> Waiting for user input...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-brand">
+        YOVA <span>PS5</span> &bull; HOST
+      </div>
+      <div class="social-links">
+        <a href="https://www.tiktok.com/@yova2flash" target="_blank" rel="noopener noreferrer" class="social-link" title="YOVA TikTok">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.3 6.3 0 0 0 1.93-4.49V8.6a8.28 8.28 0 0 0 5.16 1.8V6.95a4.8 4.8 0 0 1-1.32-.26z"/></svg>
+          TikTok (@yova2flash)
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- UI Logic & Console Hijacking -->
+  <script>
+    (function() {
+      const consoleOutput = document.getElementById('console-output');
+      const statusDot = document.getElementById('statusDot');
+      const statusText = document.getElementById('statusText');
+      const exploitBtn = document.getElementById('exploitBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const logCount = document.getElementById('logCount');
+      const firmwareSelect = document.getElementById('firmwareSelect');
+      const gridBg = document.getElementById('gridBg');
+
+      const maxLogLines = 200;
+
+      function updateLogCount() {
+        logCount.textContent = `${consoleOutput.childElementCount} lines`;
+      }
+
+      function addLog(message, type = 'info') {
+        const line = document.createElement('div');
+        line.className = `log-line ${type}`;
+        const timestamp = new Date().toLocaleTimeString();
+        line.textContent = `[${timestamp}] > ${message}`;
+        consoleOutput.appendChild(line);
+        while (consoleOutput.childElementCount > maxLogLines) {
+          consoleOutput.firstElementChild.remove();
+        }
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        updateLogCount();
+      }
+      window.addUiLog = addLog;
+
+      // Hijack native console methods to display in UI
+      const originalLog = console.log;
+      const originalError = console.error;
+      const originalWarn = console.warn;
+
+      console.log = function(...args) {
+        originalLog.apply(console, args);
+        addLog(args.join(' '), 'info');
+      };
+
+      console.error = function(...args) {
+        originalError.apply(console, args);
+        addLog(args.join(' '), 'error');
+      };
+
+      console.warn = function(...args) {
+        originalWarn.apply(console, args);
+        addLog(args.join(' '), 'warn');
+      };
+
+      // --- Auto Detect Firmware Logic ---
+      function autoDetectFirmware() {
+        addLog('Attempting to auto-detect PS5 firmware...', 'info');
+        firmwareSelect.disabled = true;
+
+        const startedAt = Date.now();
+        const detect = () => {
+          const detectedFw = typeof window.fw_str === 'string' ? window.fw_str : '';
+          if (!detectedFw) {
+            if (Date.now() - startedAt < 5000) {
+              setTimeout(detect, 100);
+              return;
+            }
+
+            firmwareSelect.disabled = false;
+            exploitBtn.disabled = true;
+            exploitBtn.textContent = 'PS5 REQUIRED';
+            statusDot.className = 'status-dot error';
+            statusText.textContent = 'NOT DETECTED';
+            statusText.style.color = 'var(--neon-red)';
+            addLog('PS5 firmware could not be detected. Manual selection cannot override console firmware.', 'error');
+            return;
+          }
+
+          const option = Array.from(firmwareSelect.options)
+            .find((item) => item.value === detectedFw);
+          if (!option) {
+            firmwareSelect.disabled = false;
+            exploitBtn.disabled = true;
+            exploitBtn.textContent = 'UNSUPPORTED FIRMWARE';
+            statusDot.className = 'status-dot error';
+            statusText.textContent = 'UNSUPPORTED';
+            statusText.style.color = 'var(--neon-red)';
+            addLog(`Detected firmware ${detectedFw} is not supported.`, 'error');
+            return;
+          }
+
+          firmwareSelect.value = detectedFw;
+          firmwareSelect.disabled = false;
+          addLog(`Firmware auto-detected: ${detectedFw}`, 'success');
+        };
+
+        detect();
+      }
+
+      // Trigger auto detect on load if "auto" is selected
+      if (firmwareSelect.value === 'auto') {
+        autoDetectFirmware();
+      }
+
+      // --- Event Listeners ---
+
+      // Firmware Selection Change
+      firmwareSelect.addEventListener('change', (e) => {
+        if (e.target.value === 'auto') {
+          autoDetectFirmware();
+        } else {
+          addLog(`Target firmware set to: ${e.target.value}`, 'info');
+        }
+      });
+
+      // Clear Console
+      clearBtn.addEventListener('click', () => {
+        consoleOutput.innerHTML = '<div class="log-line info">> Console cleared.</div>';
+        updateLogCount();
+      });
+
+      // Copy Logs
+      copyBtn.addEventListener('click', () => {
+        const text = Array.from(consoleOutput.children).map(el => el.textContent).join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+          addLog('Logs copied to clipboard!', 'success');
+        }).catch(() => {
+          addLog('Failed to copy logs.', 'error');
+        });
+      });
+
+      // Run Exploit
+      exploitBtn.addEventListener('click', () => {
+        const selectedFw = firmwareSelect.value;
+        
+        if (selectedFw === 'auto') {
+          addLog('Please wait for auto-detection to finish or select manually.', 'warn');
+          return;
+        }
+
+        if (selectedFw !== window.fw_str) {
+          addLog('The selected firmware does not match the console firmware; use Auto Detect.', 'error');
+          return;
+        }
+
+        if (typeof window.startExploit !== 'function') {
+          addLog('Exploit runtime is still loading. Try again in a moment.', 'error');
+          return;
+        }
+
+        exploitBtn.disabled = true;
+        exploitBtn.textContent = 'EXPLOITING...';
+        exploitBtn.style.opacity = '0.7';
+        exploitBtn.style.cursor = 'not-allowed';
+
+        addLog(`Initializing exploit chain for PS5 firmware ${selectedFw}...`, 'info');
+
+        window.startExploit()
+          .then(() => {
+            addLog(`Exploit sequence for ${selectedFw} completed.`, 'success');
+          })
+          .catch((error) => {
+            addLog(error instanceof Error ? error.message : String(error), 'error');
+          });
+      });
+
+      window.addEventListener('exploit-state', (event) => {
+        const state = event.detail?.state;
+        if (state === 'running') {
+         statusDot.className = 'status-dot active';
+         statusText.textContent = 'RUNNING';
+         statusText.style.color = 'var(--neon-green)';
+         exploitBtn.disabled = true;
+         exploitBtn.textContent = 'EXPLOITING...';
+         exploitBtn.style.opacity = '0.7';
+         exploitBtn.style.cursor = 'not-allowed';
+        } else if (state === 'completed') {
+         statusDot.className = 'status-dot';
+         statusText.textContent = 'COMPLETED';
+         statusText.style.color = 'var(--neon-orange-bright)';
+         exploitBtn.textContent = 'COMPLETED';
+        } else if (state === 'failed') {
+         statusDot.className = 'status-dot error';
+         statusText.textContent = 'RELOAD REQUIRED';
+         statusText.style.color = 'var(--neon-red)';
+         exploitBtn.textContent = 'RELOAD PAGE TO RETRY';
+        }
+      });
+
+      updateLogCount();
+    })();
+  </script>
+
+  <!-- Original Scripts (Preserved) -->
+  <script src="./src/firmware.js"></script>
+  <script src="./src/main.js"></script>
+  <script src="./src/rop.js"></script>
+  <script src="./src/utils/syscalls.js"></script>
+  <script type="module" src="./src/site.js"></script>
+</body>
+</html>
